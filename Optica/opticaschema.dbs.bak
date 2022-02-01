@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="MongoDb" id="Project-105a" database="MongoDb" >
+	<schema name="optica" >
+		<table name="clientes" >
+			<column name="_id" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="nombre" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="cp" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="tel" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="email" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="fecha_reg" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="compras" type="array[object]" length="800" decimal="0" jt="4999545" mandatory="y" >
+				<column name="vendedor" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="gafas_id" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			</column>
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<fk name="Fk_clientes_gafas" virtual="y" to_schema="optica" to_table="gafas" >
+				<fk_column name="compras.gafas_id" pk="_id" />
+			</fk>
+		</table>
+		<table name="gafas" >
+			<column name="_id" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="provedor" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="marca" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="graduacion" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="tipo" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="color" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="precio" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<fk name="Fk_gafas_proovedores" virtual="y" to_schema="optica" to_table="proovedores" >
+				<fk_column name="provedor" pk="_id" />
+			</fk>
+		</table>
+		<table name="proovedores" >
+			<column name="_id" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="nombre" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="telefono" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="fax" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="NIF" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="direccion" type="object" length="800" decimal="0" jt="4999544" mandatory="y" >
+				<column name="calle" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="numero" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+				<column name="piso" type="int" length="800" decimal="0" jt="4" mandatory="y" />
+				<column name="puerta" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="codigo postal" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="ciudad" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="pais" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			</column>
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+		</table>
+	</schema>
+	<connector name="MongoDb" database="MongoDb" driver_class="com.dbschema.MongoJdbcDriver" driver_jar="mongojdbc4.0.jar" driver_desc="No Authentication" host="localhost" port="27017" instance="optica" user="admin" />
+	<layout name="Main Layout" id="Layout-617" show_relation="columns" >
+		<entity schema="optica" name="clientes" color="3986C1" x="240" y="48" />
+		<entity schema="optica" name="clientes" column="compras" color="3986C1" x="48" y="96" />
+		<entity schema="optica" name="proovedores" column="direccion" color="BED3F4" x="800" y="48" />
+		<entity schema="optica" name="gafas" color="3986C1" x="432" y="48" />
+		<entity schema="optica" name="proovedores" color="BED3F4" x="656" y="48" />
+	</layout>
+</project>
