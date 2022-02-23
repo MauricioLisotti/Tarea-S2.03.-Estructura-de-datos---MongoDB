@@ -1,0 +1,23 @@
+[{
+  "_id": 1,
+  "direccion": "Paseo de Gracia 123",
+  "cp": "08056",
+  "localidad": "Barcelona",
+  "provincia": "Barcelona",
+  "empleados": [
+    {
+      "nombre": "Pablo",
+      "apellido": "Suarez",
+      "NIF": "35124568H",
+      "tel": "654879546",
+      "trabajo": "cocinero"
+    },
+    {
+      "nombre": "Alicia",
+      "apellido": "Perez",
+      "NIF": "25687415J",
+      "tel": "589568741",
+      "trabajo": "repartidor"
+    }
+  ]
+}]

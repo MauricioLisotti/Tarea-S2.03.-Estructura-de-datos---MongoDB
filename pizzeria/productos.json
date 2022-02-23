@@ -1,0 +1,8 @@
+[{
+  "_id": 1,
+  "nombre": "pizza 4 quesos",
+  "descripcion": "pizza a base de tomate, mozzarella, roquefort, parmesano, gorgonzola",
+  "categoria": "pizza",
+  "imagen": "/imagen/pizza4quesos.jpg",
+  "precio": 12
+}]

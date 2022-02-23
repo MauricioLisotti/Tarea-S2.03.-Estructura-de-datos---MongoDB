@@ -1,0 +1,20 @@
+[{
+  "_id": 1,
+  "cliente_id": 1,
+  "tienda_id": 1,
+  "fecha": "2021-03-04 12:23",
+  "tipo": "domicilio",
+  "precio": 28,
+  "fecha_entrega": "2021-03-04 12:50",
+  "repartidor": "mario",
+  "productos": [
+    {
+      "producto_id": 1,
+      "cantidad": 1
+    },
+    {
+      "producto_id": 2,
+      "cantidad": 2
+    }
+  ]
+}]
